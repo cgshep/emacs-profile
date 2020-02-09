@@ -1,0 +1,128 @@
+ls
+rm -rf build/
+rm -rf dist/
+rm -rf pycocks.egg-info/
+ls
+git add .
+git commit -m "Clearup"
+ls
+rm trusted-computing-supply-chain-issues.md*
+ls
+ls
+ls
+cd ..
+ls
+make
+make html
+ls
+make
+make html
+ls
+cd content/
+ls
+cd extra/
+ls
+cd ..
+ls
+cd pages/
+ls
+cd ..
+ls
+cd ..
+ls
+cd themes/
+ls
+cd simplegrey/
+ls
+cd ..
+cd sober/
+ls
+cd static/
+ls
+cd js/
+ls
+cd ..
+ls
+cd ..
+ls
+cd templates/
+ls
+ls
+cd ../
+ls
+cd ../
+ls
+cd ..
+ls
+git -b
+git ready
+git branch
+ls
+make
+make publish
+ls
+cd output/
+ls
+git add .
+git commit -m "Update"
+git push
+ls
+cd ..
+ls
+ls
+cd themes/sober/
+ls
+git add .
+git commit -m "Update theme"
+git push
+ls
+cd ../../
+ls
+cd content/
+ls
+rm adaboost.md 
+cd ..
+make html
+make
+make publish
+ls
+cd output/
+ls
+cd..
+ls
+cd ..
+ls
+cd themes/
+ls
+cd sober/
+ls
+cd ..
+ls
+cd ..
+make html
+cd output/
+git add .
+git commit -m "Update"
+git push
+cd ../
+make publish
+cd output/
+git add .
+git commit -m "Update"
+cd ..
+make html
+cd output/
+git add .
+git commit -m "Update"
+cd ../
+ls
+cd themes/sober/
+ls
+grep -i "block_title"
+grep -r "block_title" .
+ls
+ls
+cd projects/
+ls
+mkdir easypca
+ls

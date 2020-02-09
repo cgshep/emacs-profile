@@ -1,0 +1,16 @@
+;; Object carlton/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "carlton/"
+  :tables (list 
+   (semanticdb-table "a.c"
+    :major-mode 'c-mode
+    :tags nil
+    :file "a.c"
+    :pointmax 1
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!home!carlton!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

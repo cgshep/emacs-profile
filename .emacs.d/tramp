@@ -1,0 +1,62 @@
+;; -*- emacs-lisp -*- <18/05/29 23:22:06 /home/carlton/.emacs.d/tramp>
+;; Tramp connection history.  Don't change this file.
+;; You can delete it, forcing Tramp to reapply the checks.
+
+((["ssh" "pi" "192.168.0.67" nil nil]
+  ("uname" "Linux 4.4.21-v7+")
+  ("locale" "LC_ALL=C")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("~" "/home/pi")
+  ("readlink" "\\readlink")
+  ("stat" nil)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("file-exists" "test -e")
+  ("id" "/usr/bin/id")
+  ("gid-string" "pi")
+  ("gid-integer" 1000))
+ (["ssh" "linaro" "192.168.100.5" nil nil]
+  ("uname" "Linux 4.4.0-135-arm64")
+  ("locale" "LC_ALL=C")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("~" "/home/linaro")
+  ("readlink" "\\readlink")
+  ("stat" nil)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("file-exists" "test -e")
+  ("git" "\\git")
+  ("id" "/usr/bin/id")
+  ("gid-string" "linaro"))
+ (["ssh" "pi" "127.0.0.1" nil nil]
+  nil)
+ (["ssh" "pi" "127.0.0.1#5022" nil nil]
+  ("uname" "Linux 4.4.34+")
+  ("locale" "LC_ALL=C")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("stat" nil)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("id" "/usr/bin/id")
+  ("gid-string" "pi")
+  ("readlink" "\\readlink")
+  ("gid-integer" 1000)
+  ("file-exists" "test -e")
+  ("uid-integer" 1000)
+  ("tmpdir" "/tmp")
+  ("touch-t" t)
+  ("touch" "\\touch"))
+ (["ssh" nil "ssh" nil nil]
+  nil))

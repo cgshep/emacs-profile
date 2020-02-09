@@ -1,0 +1,24 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".blockchain.info"
+  [url-cookie "__cfduid" "d5d5e3312ae7b19744d034ac3c2886a9c1482074765" "18 Dec 17 15:26:05 [GMT]" "/" ".blockchain.info" nil]
+  [url-cookie "HttpOnly" nil "18 Dec 17 15:26:05 [GMT]" "/" ".blockchain.info" nil])
+ (".stackoverflow.com"
+  [url-cookie "prov" "c255f6e0-670f-45f1-b497-31f8e12effde" "01-Jan-2055 00:00:00.00 GMT" "/" ".stackoverflow.com" nil]
+  [url-cookie "HttpOnly" nil "01-Jan-2055 00:00:00.00 GMT" "/" ".stackoverflow.com" nil]))
+)
+(setq url-cookie-secure-storage
+ '((".github.com"
+  [url-cookie "HttpOnly" nil "15-Apr-2035 20:44:49.00 GMT" "/" ".github.com" t]
+  [url-cookie "logged_in" "no" "15-Apr-2035 20:44:49.00 GMT" "/" ".github.com" t])
+ ("en.wikipedia.org"
+  [url-cookie "HttpOnly" nil "Thu, 19 Jan 2017 12:00:00 GMT" "/" "en.wikipedia.org" t]
+  [url-cookie "WMF-Last-Access" "18-Dec-2016" "Thu, 19 Jan 2017 12:00:00 GMT" "/" "en.wikipedia.org" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:
