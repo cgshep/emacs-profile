@@ -2,21 +2,11 @@
 ;; Automatically generated file!!! DO NOT EDIT!!!
 
 (setq url-cookie-storage
- '((".stackoverflow.com"
-  [url-cookie "HttpOnly" nil "01-Jan-2055 00:00:00.00 GMT" "/" ".stackoverflow.com" nil]
-  [url-cookie "prov" "c255f6e0-670f-45f1-b497-31f8e12effde" "01-Jan-2055 00:00:00.00 GMT" "/" ".stackoverflow.com" nil])
- (".google.co.uk"
-  [url-cookie "NID" "99=M28T2Pkz17SHZmVAKYdgz1_pa8lp1-UpYIrRigpgHya6_XlCx8CXUQPnJOEoWM8XA6MuKn4yE0Ztm1MJo6f7l38mRVNDa1_58-li1OyOR2crt-5ZOsbDbPCDos_2sb_u" "18-Sep-2017 17:40:13.00 GMT" "/" ".google.co.uk" nil]
-  [url-cookie "HttpOnly" nil "18-Sep-2017 17:40:13.00 GMT" "/" ".google.co.uk" nil])
- (".blockchain.info"
-  [url-cookie "HttpOnly" nil "18 Dec 17 15:26:05 [GMT]" "/" ".blockchain.info" nil]
-  [url-cookie "__cfduid" "d5d5e3312ae7b19744d034ac3c2886a9c1482074765" "18 Dec 17 15:26:05 [GMT]" "/" ".blockchain.info" nil]))
+ '((".google.com"
+  [url-cookie "NID" "204=rQ7BUr35lZoZX4gpfJwyuZFzEBZgDETy72XrdSniiNZpPmEhuRwSf7UAHcOWIZcSlcBOz7RscZSDHpOpa9Ybx87nAQUwtkXBCYp1CgMyXXW7Ft9t4dVaG_LBoOIwix4-dLn6tQO6v2EeeCilaXPYgne_I1XABC5f7ek-PFNu9Q0" "Wed, 03-Mar-2021 20:54:09 GMT" "/" ".google.com" nil]))
 )
 (setq url-cookie-secure-storage
- '((".github.com"
-  [url-cookie "logged_in" "no" "15-Apr-2035 20:44:49.00 GMT" "/" ".github.com" t]
-  [url-cookie "HttpOnly" nil "15-Apr-2035 20:44:49.00 GMT" "/" ".github.com" t]))
-)
+ 'nil)
 
 ;; Local Variables:
 ;; version-control: never

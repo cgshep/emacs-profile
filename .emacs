@@ -12,13 +12,13 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (treemacs company direx-grep jedi jedi-core org yaml-mode w3m virtualenv tidy smart-mode-line sly scheme-complete scala-mode2 ruby-compilation quack python-mode python pymacs pyflakes pydoc powerline ox-reveal ox-ioslide ox-html5slide org-pdfview org-gnome org-board org-beautify-theme org-alert org-ac nose markdown-mode magit lua-mode iedit idomenu ido-ubiquitous iasm-mode helm haskell-mode guile-scheme geiser fuzzy fullscreen-mode flymake-python-pyflakes flymake-hlint flymake-haskell-multi flymake flycheck flx-ido eshell-prompt-extras eshell-manual eshell-did-you-mean emacs-cl ecb dired+ color-theme c-eldoc auto-indent-mode auto-complete-auctex auto-auto-indent auctex atom-dark-theme ac-js2 ac-ispell ac-inf-ruby))))
+    (treemacs powerline magit jedi-direx helm elpygen elpy company-jedi auto-auto-indent))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#242424" :foreground "#f6f3e8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "PfEd" :family "DejaVu Sans Mono"))))
+ '(default ((t (:inherit nil :stipple nil :background "#242424" :foreground "#f6f3e8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 131 :width normal :foundry "PfEd" :family "DejaVu Sans Mono"))))
  '(background-color "#111111")
  '(flx-ido-mode t)
  '(ido-enable-flex-matching t)
@@ -31,12 +31,8 @@
                     :foreground "#282a2e") 
 ;; Activate Marmalade and Melpa
 (require 'package)
-(add-to-list 'package-archives 
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives
-	     '("org" . "http://orgmode.org/elpa/"))
+	     '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
 ;; Remove toolbar and scrollbar
@@ -73,6 +69,8 @@
 
 ;; Helm
 (require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
 
 ;; Direx
 (require 'direx)
@@ -116,3 +114,8 @@
 (global-set-key (kbd "M-<up>") 'move-region-up)
 
 
+(setq python-indent-offset 4)
+
+(elpy-enable)
+
+(setq make-backup-files nil) ; stop creating ~ files
