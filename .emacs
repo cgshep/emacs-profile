@@ -119,3 +119,26 @@
 (elpy-enable)
 
 (setq make-backup-files nil) ; stop creating ~ files
+
+
+(setq rhul-headers  '("#+TITLE:"
+		     "#+AUTHOR: Carlton Shepherd"
+		     "#+OPTIONS: toc:nil, num:nil"
+		     "#+LATEX_HEADER_EXTRA: \\renewcommand{\\familydefault}{\\sfdefault}"
+		     "#+LATEX_HEADER_EXTRA: \\usepackage[a4paper, total={6in, 8in}]{geometry}"
+		     "#+LATEX_HEADER_EXTRA: \\usepackage{fancyhdr}"
+		     "#+LATEX_HEADER_EXTRA: \\pagestyle{fancy}"
+		     "#+LATEX_HEADER_EXTRA: \\fancyhf{}"
+		     "#+LATEX_HEADER_EXTRA: \\rhead{Carlton Shepherd}"
+		     "#+LATEX_HEADER_EXTRA: \\lhead{DOC NAME}"
+		     "#+LATEX_HEADER_EXTRA: \\rfoot{Page \\thepage}"
+		     "#+LATEX_HEADER_EXTRA: \\lfoot{\\includegraphics[width=2.6cm]{/home/carlton/rhul-small.jpg}}"
+		     ))
+
+(defun rhul-org-tex-headers ()
+  "Add Latex headers (fancyhdr, footer etc.) for RHUL doc theme"
+  (interactive)
+  (mapc (lambda (line)
+	  (insert line)
+	  (newline))
+	rhul-headers))
