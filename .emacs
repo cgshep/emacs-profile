@@ -1,34 +1,9 @@
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (wombat)))
- '(custom-safe-themes
-   (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "bb749a38c5cb7d13b60fa7fc40db7eced3d00aa93654d150b9627cabd2d9b361" default)))
- '(inhibit-startup-screen t)
- '(package-selected-packages
-   (quote
-    (treemacs powerline magit jedi-direx helm elpygen elpy company-jedi auto-auto-indent))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#242424" :foreground "#f6f3e8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 131 :width normal :foundry "PfEd" :family "DejaVu Sans Mono"))))
- '(background-color "#111111")
- '(flx-ido-mode t)
- '(ido-enable-flex-matching t)
- '(ido-ubiquitous-mode t))
-
 ;; Enable global line wrapping
 (global-visual-line-mode 1)
 (set-face-attribute 'vertical-border
                     nil
-                    :foreground "#282a2e") 
+                    :foreground "#282a2e")
+
 ;; Activate Marmalade and Melpa
 (require 'package)
 (add-to-list 'package-archives
@@ -38,6 +13,10 @@
 ;; Remove toolbar and scrollbar
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
+;; Ido mode
+(ido-mode 1)
+
 ;; Fullscreen mode
 (global-set-key (kbd "<f11>") 'fullscreen-mode-fullscreen-toggle)
 
@@ -51,10 +30,6 @@
 ;; Set up agenda files
 (require 'org)
 (define-key global-map "\C-ca" 'org-agenda)
-
-;; Ido mode
-(require 'ido)
-(ido-mode t)
 
 ;; Remap window movement
 (global-set-key (kbd "C-x <up>") 'windmove-up)
@@ -70,7 +45,7 @@
 ;; Helm
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x C-u") #'helm-find-files)
 
 ;; Direx
 (require 'direx)
@@ -82,7 +57,7 @@
 
 (require 'magit)
 
-;(global-linum-mode 1)
+;(global-linum-mode t)
 
 (global-company-mode 1)
 
@@ -115,13 +90,13 @@
 
 
 (setq python-indent-offset 4)
-
-(elpy-enable)
+;(elpy-enable)
+;(setq elpy-rpc-python-command "python3")
 
 (setq make-backup-files nil) ; stop creating ~ files
 
 
-(setq rhul-headers  '("#+TITLE:"
+(setq rhul-headers'("#+TITLE:"
 		     "#+AUTHOR: Carlton Shepherd"
 		     "#+OPTIONS: toc:nil, num:nil"
 		     "#+LATEX_HEADER_EXTRA: \\renewcommand{\\familydefault}{\\sfdefault}"
@@ -139,6 +114,59 @@
   "Add Latex headers (fancyhdr, footer etc.) for RHUL doc theme"
   (interactive)
   (mapc (lambda (line)
-	  (insert line)
-	  (newline))
+	  (insert line) (newline))
 	rhul-headers))
+
+;;
+;; Web search functions
+;;
+(setq search-engine "duckduckgo.com/")
+
+(defun launch-new-tab (url)
+  "Launch a new Firefox tab with a given URL."
+  (shell-command
+   (concat "firefox --new-tab " url)))
+
+(defun search-web-at-point ()
+  "Search the web for a given search engine and search term."
+  (interactive)
+  (shell-command
+   (launch-new-tab
+    (concat search-engine
+	    (replace-regexp-in-string
+	     "\s" "%20"
+	     (thing-at-point 'line))))))
+
+(defun open-url ()
+  "Open a new URL on the current line."
+  (interactive)
+  (launch-new-tab
+   (thing-at-point 'line)))
+
+;(add-to-list 'load-path "~/.emacs.d/test/")
+;(require 'encrypt-region)
+;(setq encrypt-region--key "616461746120646e6d20726f20656164")
+;(setq encrypt-region--buf-name "*Encrypt Region*")
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#3c3836" "#fb4933" "#b8bb26" "#fabd2f" "#83a598" "#d3869b" "#8ec07c" "#ebdbb2"])
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
+ '(custom-safe-themes
+   (quote
+    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426E" "6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" default)))
+ '(package-selected-packages
+   (quote
+    (helm-tramp ox-gfm treemacs powerline org markdown-mode magit helm gruvbox-theme elpy direx color-theme-sanityinc-tomorrow auto-complete)))
+ '(pdf-view-midnight-colors (quote ("#fdf4c1" . "#282828")))
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 140 :width normal)))))
