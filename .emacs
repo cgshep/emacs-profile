@@ -1,4 +1,4 @@
-;; Enable global line wrapping
+; Enable global line wrapping
 (global-visual-line-mode 1)
 (set-face-attribute 'vertical-border
                     nil
@@ -11,7 +11,7 @@
 (package-initialize)
 
 ;; Remove toolbar and scrollbar
-(tool-bar-mode -1)
+(tool-bar-mode -1) 
 (scroll-bar-mode -1)
 
 ;; Ido mode
@@ -57,7 +57,7 @@
 
 (require 'magit)
 
-;(global-linum-mode t)
+(global-linum-mode t)
 
 (global-company-mode 1)
 
@@ -88,34 +88,33 @@
 (global-set-key (kbd "M-<down>") 'move-region-down)
 (global-set-key (kbd "M-<up>") 'move-region-up)
 
-
 (setq python-indent-offset 4)
 ;(elpy-enable)
 ;(setq elpy-rpc-python-command "python3")
 
 (setq make-backup-files nil) ; stop creating ~ files
 
-
-(setq rhul-headers'("#+TITLE:"
-		     "#+AUTHOR: Carlton Shepherd"
-		     "#+OPTIONS: toc:nil, num:nil"
-		     "#+LATEX_HEADER_EXTRA: \\renewcommand{\\familydefault}{\\sfdefault}"
-		     "#+LATEX_HEADER_EXTRA: \\usepackage[a4paper, total={6in, 8in}]{geometry}"
-		     "#+LATEX_HEADER_EXTRA: \\usepackage{fancyhdr}"
-		     "#+LATEX_HEADER_EXTRA: \\pagestyle{fancy}"
-		     "#+LATEX_HEADER_EXTRA: \\fancyhf{}"
-		     "#+LATEX_HEADER_EXTRA: \\rhead{Carlton Shepherd}"
-		     "#+LATEX_HEADER_EXTRA: \\lhead{DOC NAME}"
-		     "#+LATEX_HEADER_EXTRA: \\rfoot{Page \\thepage}"
-		     "#+LATEX_HEADER_EXTRA: \\lfoot{\\includegraphics[width=2.6cm]{/home/carlton/rhul-small.jpg}}"
-		     ))
-
 (defun rhul-org-tex-headers ()
   "Add Latex headers (fancyhdr, footer etc.) for RHUL doc theme"
   (interactive)
-  (mapc (lambda (line)
-	  (insert line) (newline))
-	rhul-headers))
+  (let ((rhul-headers '("#+TITLE:"
+			"#+AUTHOR: Carlton Shepherd"
+			"#+OPTIONS: toc:nil, num:nil, email:t"
+			"#+LATEX_HEADER_EXTRA: \\renewcommand{\\familydefault}{\\sfdefault}"
+			"#+LATEX_HEADER_EXTRA: \\usepackage[a4paper, total={6in, 8in}]{geometry}"
+			"#+LATEX_HEADER_EXTRA: \\usepackage{fancyhdr}"
+			"#+LATEX_HEADER_EXTRA: \\usepackage[export]{adjustbox}"
+			"#+LATEX_HEADER_EXTRA: \\renewcommand{\\rmdefault}{ppl}"
+			"#+LATEX_HEADER_EXTRA: \\pagestyle{fancy}"
+			"#+LATEX_HEADER_EXTRA: \\fancyhf{}"
+			"#+LATEX_HEADER_EXTRA: \\rhead{Carlton Shepherd}"
+			"#+LATEX_HEADER_EXTRA: \\lhead{DOC NAME}"
+			"#+LATEX_HEADER_EXTRA: \\rfoot{Page \\thepage}"
+			"#+LATEX_HEADER_EXTRA: \\lfoot{\\includegraphics[width=2.6cm,valign=c]{/home/carlton/rhul-small.jpg}}"
+			)))
+    (mapc (lambda (line)
+	    (insert line) (newline))
+	  rhul-headers)))
 
 ;;
 ;; Web search functions
@@ -146,10 +145,13 @@
 ; Change C indentation. Default is 2 spaces; not enough!
 (setq-default c-basic-offset 4)
 
-;(add-to-list 'load-path "~/.emacs.d/test/")
-;(require 'encrypt-region)
-;(setq encrypt-region--key "616461746120646e6d20726f20656164")
-;(setq encrypt-region--buf-name "*Encrypt Region*")
+(add-to-list 'load-path "~/projects/encrypt-region/")
+(add-to-list 'load-path "~/projects/fancy-reading-mode/")
+(add-to-list 'load-path "~/.emacs.d/elpa/package-lint-0.16")
+(require 'package-lint)
+(require 'encrypt-region)
+(require 'fancy-reading-mode)
+(setq encrypt-region--key "616461746120646e6d20726f20656164")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -164,7 +166,7 @@
     ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426E" "6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" default)))
  '(package-selected-packages
    (quote
-    (helm-tramp ox-gfm treemacs powerline org markdown-mode magit helm gruvbox-theme elpy direx color-theme-sanityinc-tomorrow auto-complete)))
+    (rust-mode ## helm-tramp ox-gfm treemacs powerline org markdown-mode magit helm gruvbox-theme elpy direx color-theme-sanityinc-tomorrow auto-complete)))
  '(pdf-view-midnight-colors (quote ("#fdf4c1" . "#282828")))
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -172,4 +174,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 145 :width normal)))))
+ '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 155 :width normal)))))
