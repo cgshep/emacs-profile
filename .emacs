@@ -13,6 +13,9 @@
 ;; Remove toolbar and scrollbar
 (tool-bar-mode -1) 
 (scroll-bar-mode -1)
+(menu-bar-mode -1)
+
+(electric-pair-mode 1)
 
 ;; Ido mode
 (ido-mode 1)
@@ -50,15 +53,12 @@
 ;; Direx
 (require 'direx)
 (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
-
-(global-auto-complete-mode t)
+;(global-auto-complete-mode t)
 
 (setq erc-nick "cgshep")
 
 (require 'magit)
-
 (global-linum-mode t)
-
 (global-company-mode 1)
 
 (require 'treemacs)
@@ -94,8 +94,8 @@
 
 (setq make-backup-files nil) ; stop creating ~ files
 
-(defun rhul-org-tex-headers ()
-  "Add Latex headers (fancyhdr, footer etc.) for RHUL doc theme"
+(defun carltons-org-tex-headers ()
+  "Add Latex headers (fancyhdr, footer etc.) for a basic doc theme"
   (interactive)
   (let ((rhul-headers '("#+TITLE:"
 			"#+AUTHOR: Carlton Shepherd"
@@ -110,7 +110,7 @@
 			"#+LATEX_HEADER_EXTRA: \\rhead{Carlton Shepherd}"
 			"#+LATEX_HEADER_EXTRA: \\lhead{DOC NAME}"
 			"#+LATEX_HEADER_EXTRA: \\rfoot{Page \\thepage}"
-			"#+LATEX_HEADER_EXTRA: \\lfoot{\\includegraphics[width=2.6cm,valign=c]{/home/carlton/rhul-small.jpg}}"
+			;; We can add a logo in the bottom left using			"#+LATEX_HEADER_EXTRA: \\lfoot{\\includegraphics[width=2.6cm,valign=c]{/home/carlton/rhul-small.jpg}}"
 			)))
     (mapc (lambda (line)
 	    (insert line) (newline))
@@ -142,16 +142,19 @@
   (launch-new-tab
    (thing-at-point 'line)))
 
+
+(global-set-key (kbd "C-c c") 'comment-region)
+(global-set-key (kbd "C-c u") 'uncomment-region)
 ; Change C indentation. Default is 2 spaces; not enough!
 (setq-default c-basic-offset 4)
 
-(add-to-list 'load-path "~/projects/encrypt-region/")
-(add-to-list 'load-path "~/projects/fancy-reading-mode/")
-(add-to-list 'load-path "~/.emacs.d/elpa/package-lint-0.16")
-(require 'package-lint)
-(require 'encrypt-region)
-(require 'fancy-reading-mode)
-(setq encrypt-region--key "616461746120646e6d20726f20656164")
+;(add-to-list 'load-path "~/projects/encrypt-region/")
+;(add-to-list 'load-path "~/projects/fancy-reading-mode/")
+;(add-to-list 'load-path "~/.emacs.d/elpa/package-lint-0.16")
+;(require 'package-lint)
+;(require 'encrypt-region)
+;(require 'fancy-reading-mode)
+;(setq encrypt-region--key "616461746120646e6d20726f20656164")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -174,4 +177,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 155 :width normal)))))
+ '(default ((t (:family "Noto Mono" :foundry "DAMA" :slant normal :weight normal :height 125 :width normal)))))
